@@ -28,15 +28,12 @@ const startMenu = () => {
         .then((answers) => {
             if (answers.employee_selection == "Manager") {
                 addManager();
-                console.log("Manager Added");
             }
             else if (answers.employee_selection == "Engineer") {
                 addEngineer();
-                console.log("Engineer Added");
             }
             else if (answers.employee_selection == "Intern") {
                 addIntern();
-                console.log("Intern Added");
             }
             else {
                 console.log("Thank you for using the application.")
@@ -56,7 +53,7 @@ const addManager = () => {
 
             {
                 type: "input",
-                name: "ID",
+                name: "Id",
                 message: "What is the manager's ID?",
             },
 
@@ -73,10 +70,11 @@ const addManager = () => {
             },
         ])
         .then((answers) => {
-            const manager = new Manager(answers.name, answers.ID, answers.email, answers.office_number);
+            const manager = new Manager(answers.name, answers.Id, answers.email, answers.office_number);
             console.log(manager);
             employeeArray.push(manager);
-
+            console.log("Manager Added");
+            startMenu();
         }
         )
 }
@@ -92,7 +90,7 @@ const addEngineer = () => {
 
             {
                 type: "input",
-                name: "ID",
+                name: "Id",
                 message: "What is the engineer's ID?",
             },
 
@@ -104,15 +102,16 @@ const addEngineer = () => {
 
             {
                 type: "input",
-                name: "gihub",
+                name: "github",
                 message: "What is the engineer's github username?",
             },
         ])
         .then((answers) => {
-            const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github);
+            const engineer = new Engineer(answers.name, answers.Id, answers.email, answers.github);
             console.log(engineer);
             employeeArray.push(engineer);
-
+            console.log("Engineer Added");
+            startMenu();
         }
         )
 }
@@ -128,7 +127,7 @@ const addIntern = () => {
 
             {
                 type: "input",
-                name: "ID",
+                name: "Id",
                 message: "What is the intern's ID?",
             },
 
@@ -145,10 +144,12 @@ const addIntern = () => {
             },
         ])
         .then((answers) => {
-            const intern = new Intern(answers.name, answers.ID, answers.email, answers.school);
+            const intern = new Intern(answers.name, answers.Id, answers.email, answers.school);
             console.log(intern);
             employeeArray.push(intern);
-
+            console.log("Intern Added");
+            startMenu();
+            console.log(employeeArray);
         }
         )
 }
