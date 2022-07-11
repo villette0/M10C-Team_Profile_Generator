@@ -31,11 +31,11 @@ const startMenu = () => {
                 console.log("Manager Added");
             }
             else if (answers.employee_selection == "Engineer") {
-                // addEngineer();
+                addEngineer();
                 console.log("Engineer Added");
             }
             else if (answers.employee_selection == "Intern") {
-                //addIntern();
+                addIntern();
                 console.log("Intern Added");
             }
             else {
@@ -73,12 +73,85 @@ const addManager = () => {
             },
         ])
         .then((answers) => {
-           const manager = new Manager(answers.name, answers.ID, answers.email, answers.office_number);
-           console.log(manager);
+            const manager = new Manager(answers.name, answers.ID, answers.email, answers.office_number);
+            console.log(manager);
             employeeArray.push(manager);
 
         }
         )
 }
+
+const addEngineer = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the engineer's name?",
+            },
+
+            {
+                type: "input",
+                name: "ID",
+                message: "What is the engineer's ID?",
+            },
+
+            {
+                type: "input",
+                name: "email",
+                message: "What is the engineer's email?",
+            },
+
+            {
+                type: "input",
+                name: "gihub",
+                message: "What is the engineer's github username?",
+            },
+        ])
+        .then((answers) => {
+            const engineer = new Engineer(answers.name, answers.ID, answers.email, answers.github);
+            console.log(engineer);
+            employeeArray.push(engineer);
+
+        }
+        )
+}
+
+const addIntern = () => {
+    inquirer
+        .prompt([
+            {
+                type: "input",
+                name: "name",
+                message: "What is the intern's name?",
+            },
+
+            {
+                type: "input",
+                name: "ID",
+                message: "What is the intern's ID?",
+            },
+
+            {
+                type: "input",
+                name: "email",
+                message: "What is the intern's email?",
+            },
+
+            {
+                type: "input",
+                name: "school",
+                message: "What is the intern's school?",
+            },
+        ])
+        .then((answers) => {
+            const intern = new Intern(answers.name, answers.ID, answers.email, answers.school);
+            console.log(intern);
+            employeeArray.push(intern);
+
+        }
+        )
+}
+
 
 startMenu();
