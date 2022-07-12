@@ -12,19 +12,19 @@ describe('Employee', () => {
         });
     });
     
-    describe('getNamefunction', () => {
+    describe('getName function', () => {
       it("should return the name",  () => {
         expect(employee.getName()).toEqual("Bob");
       });
     });
 
-    describe('getNamefunction', () => {
+    describe('getId function', () => {
       it("should return the Id",  () => {
         expect(employee.getId()).toEqual("12");
       });
     });
 
-    describe('getNamefunction', () => {
+    describe('getEmail function', () => {
       it("should return the email",  () => {
         expect(employee.getEmail()).toEqual("bob@gmail.com");
       });
