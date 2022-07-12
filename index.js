@@ -28,24 +28,23 @@ const startMenu = () => {
         ])
         .then((answers) => {
             if (answers.employee_selection == "Manager") {
-                addManager();
+                addManagertoArray();
             }
             else if (answers.employee_selection == "Engineer") {
-                addEngineer();
+                addEngineertoArray();
             }
             else if (answers.employee_selection == "Intern") {
-                addIntern();
+                addInterntoArray();
             }
             else {
-                // generateHTML();
-                test();
+                compileTeam();
                 console.log("Thank you for using the application.")
                 return;
             }
         })
 }
 
-const addManager = () => {
+const addManagertoArray = () => {
     inquirer
         .prompt([
             {
@@ -82,7 +81,7 @@ const addManager = () => {
         )
 }
 
-const addEngineer = () => {
+const addEngineertoArray = () => {
     inquirer
         .prompt([
             {
@@ -119,7 +118,7 @@ const addEngineer = () => {
         )
 }
 
-const addIntern = () => {
+const addInterntoArray = () => {
     inquirer
         .prompt([
             {
@@ -158,19 +157,16 @@ const addIntern = () => {
         )
 }
 
-const test = () => {
+const compileTeam = () => {
     let team = [];
     for (let i = 0; i < employeeArray.length; i++) {
         if (employeeArray[i].getRole() == "Manager") {
-            console.log("Manager");
             const managerCard = addManagerCard(employeeArray[i]);
             team.push(managerCard);
         } else if (employeeArray[i].getRole() == "Engineer") {
-            console.log("Engineer");
             const engineerCard = addEngineerCard(employeeArray[i]);
             team.push(engineerCard);
         } else {
-            console.log("Intern");
             const internCard = addInternCard(employeeArray[i]);
             team.push(internCard);
         }
@@ -183,8 +179,8 @@ const addManagerCard = (manager) => {
     <div class="col">
                 <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
                 <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">${manager.name}</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon Manager</h3>
+                    <h2 style="color: white; font-size: 30px;">${manager.name}</h2>
+                    <h3 style="color: white; font-size: 30px;"><i class="fa-solid fa-person-chalkboard"></i> Manager</h3>
                 </div>
                 <div style="background-color: white; margin: 40px 20px 20px 20px; ">
                     <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${manager.Id}1</h4>
@@ -208,7 +204,7 @@ const addEngineerCard = (engineer) => {
     <div style="background-color: white; margin: 40px 20px 20px 20px; ">
         <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${engineer.Id}</h4>
         <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email: ${engineer.email}</h4>
-        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:${engineer.github}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github: ${engineer.github}</h4>
     </div>
     </div>
 </div>
@@ -220,13 +216,13 @@ const addInternCard = (intern) => {
     <div class="col">
     <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
     <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-        <h2 style="color: white">${intern.name}</h2>
-        <h3 style="color: white; font-size: 20px;">Icon Intern</h3>
+        <h2 style="color: white; font-size: 40px">${intern.name}</h2>
+        <h3 style="color: white; font-size: 30px;"><i class="fa-solid fa-user-graduate"></i> Intern</h3>
     </div>
     <div style="background-color: white; margin: 40px 20px 20px 20px; ">
         <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${intern.Id} 1</h4>
-        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:${intern.email}</h4>
-        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">School:${intern.school}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email: ${intern.email}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">School: ${intern.school}</h4>
     </div>
     </div>
     </div>
@@ -262,4 +258,5 @@ const generateHTML = (team) => {
 </html>
     `
 }
+
 startMenu();
