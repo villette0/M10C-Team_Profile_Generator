@@ -32,3 +32,11 @@ describe('Employee', () => {
 
 });
 
+/* To make these tests run, make sure the following is in packaga.json:
+  
+"scripts": {
+    "test": "jest",
+    "start": "node index.js"
+  },
+
+Initiate the tests with: npm run test*/

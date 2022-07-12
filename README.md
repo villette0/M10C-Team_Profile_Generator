@@ -1,10 +1,10 @@
 # Team Profile Generator
 
 ## Application Description
-This is a node application which generates a HTML file from user input. In the terminal, the user is prompted with questions...
+This is a node application which generates a HTML file from user input. A CSS style sheet is also automatically created to accompany it. In the terminal, by stating 'npm start' or 'node index.js' the user is first prompted which team member employee they would like to add info for to the HTML: Manager, Engineer, or Intern. After they select one from the list and answer the questions they are continually prompted to add more employees until they select 'Quit'. Upon quitting, the HTML and CSS file is generated.
 
 ## Challenge Description
-The challenge required using node.js to create a...
+The challenge required using node.js with the modules of inquirer, fs (filesystem), and jest. Inquirer enabled prompt functionality, fs enabled writing the HTML and copying the CSS style sheet, and jest enabled testing. Classes were used for the generic Employee as well as derivatives of this with specific Manager, Intern, and Engineer classes. Tests are available for each class. Each class has unique information that appears on their information card and is added to the HTML via an array. While all employees have name, ID, and email, the manager also has an office number, the intern has a school, and the engineer has a github.
 
 ## User Story
 
@@ -37,13 +37,15 @@ THEN I exit the application, and the HTML is generated
 ```
 
 ## Tasks Completed
-The JavaScript document includes:
-* Functions, Objects, 'const' variables
-* Node Modules such as Inquirer and FS (file system)
+The JavaScript documents include:
+* Functions, Objects, Arrays, and 'const' variables
+* Node Modules such as Inquirer, FS (file system), and Jest
 * Comments
 
 ## Languages
 - JavaScript
+- HTML
+- CSS
 
 ## Links
 * [Screen Recording of Application](https://drive.google.com/...)
