@@ -1,21 +1,34 @@
-const Employee = require('./lib/employee');
+const Employee = require('../src/Employee');
 
-describe ('Employee', () => {
+describe('Employee', () => {  
+  const employee = new Employee("Bob", "12", "bob@gmail.com");
     describe('Initialization', () => {
         // Positive test
         it("should create an object with a name, Id, and email if provided valid arguments",  () => {
-          // Arrange
-          const Employee = new Employee() 'Bob';
-          const Id = '12';
-          const email = 'bob@gmail.com' 
-
-          // Act
-          const obj = new Employee(name, Id, email);
-    
           // Assert
-          expect(obj.name).toEqual(name);
-          expect(obj.Id).toEqual(Id);
-          expect(obj.email).toEqual(email);
+          expect(employee.name).toEqual("Bob");
+          expect(employee.Id).toEqual("12");
+          expect(employee.email).toEqual("bob@gmail.com");
         });
     });
+    
+    describe('getNamefunction', () => {
+      it("should return the name",  () => {
+        expect(employee.getName()).toEqual("Bob");
+      });
+    });
+
+    describe('getNamefunction', () => {
+      it("should return the Id",  () => {
+        expect(employee.getId()).toEqual("12");
+      });
+    });
+
+    describe('getNamefunction', () => {
+      it("should return the email",  () => {
+        expect(employee.getEmail()).toEqual("bob@gmail.com");
+      });
+    });
+
 });
+

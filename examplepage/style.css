@@ -1,0 +1,43 @@
+body {
+    background-color: white;
+}
+
+body h1 {
+    background-color:rgb(243, 76, 96); 
+    color: white; 
+    padding: 30px;  
+    text-align: center
+}
+
+.card-grid {
+    margin: 20px;
+}
+
+.employee-card {
+    height: 300px; 
+    margin-bottom: 40px; 
+    background-color: rgb(242, 242, 242); 
+    filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));
+}
+
+.card-banner {
+    background-color: rgb(28, 130, 255); 
+    margin: 0px; 
+    padding: 10px;
+}
+
+.card-banner h2, h3 {
+    color: white;
+}
+
+.card-info {
+    background-color: white; 
+    margin: 40px 20px 20px 20px;
+}
+
+.card-info h4 {
+    border: 1px solid gray; 
+    margin: 0px; 
+    font-size: 18px; 
+    padding: 6px;
+}
