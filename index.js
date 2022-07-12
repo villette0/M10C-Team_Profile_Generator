@@ -6,6 +6,7 @@ const jest = require("jest");
 const Engineer = require("./lib/Engineer.js");
 const Manager = require("./lib/Manager.js");
 const Intern = require("./lib/Intern.js");
+const { AnyKind } = require("@sinclair/typebox");
 
 let employeeArray = [];
 
@@ -36,6 +37,8 @@ const startMenu = () => {
                 addIntern();
             }
             else {
+                // generateHTML();
+                test();
                 console.log("Thank you for using the application.")
                 return;
             }
@@ -149,19 +152,92 @@ const addIntern = () => {
             employeeArray.push(intern);
             console.log("Intern Added");
             startMenu();
-            console.log(employeeArray);
-            console.log(employeeArray[0].name);
+            // console.log(employeeArray);
+            // console.log(employeeArray[0].name);
         }
         )
 }
 
-/*
+const test = () => {
+    let team = [];
+    for (let i = 0; i < employeeArray.length; i++) {
+        if (employeeArray[i].getRole() == "Manager") {
+            console.log("Manager");
+            const managerCard = addManagerCard(employeeArray[i]);
+            team.push(managerCard);
+        } else if (employeeArray[i].getRole() == "Engineer") {
+            console.log("Engineer");
+            const engineerCard = addEngineerCard(employeeArray[i]);
+            team.push(engineerCard);
+        } else {
+            console.log("Intern");
+            const internCard = addInternCard(employeeArray[i]);
+            team.push(internCard);
+        }
+    }
+    fs.writeFileSync("./dist/index.html", generateHTML(team.join("")))
+}
 
-const generateHTML = ({ name, Id, email, office_number, github, school}) =>
+const addManagerCard = (manager) => {
+    return `
+    <div class="col">
+                <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
+                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
+                    <h2 style="color: white">${manager.name}</h2>
+                    <h3 style="color: white; font-size: 20px;">Icon Manager</h3>
+                </div>
+                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
+                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${manager.Id}1</h4>
+                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email: ${manager.email}</h4>
+                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Office Number: ${manager.officeNumber}</h4>
+                </div>
+                </div>
+            </div>
+    `
+}
+
+
+const addEngineerCard = (engineer) => {
+    return `
+    <div class="col">
+    <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
+    <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
+        <h2 style="color: white">${engineer.name}</h2>
+        <h3 style="color: white; font-size: 20px;">Icon Engineer</h3>
+    </div>
+    <div style="background-color: white; margin: 40px 20px 20px 20px; ">
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${engineer.Id}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email: ${engineer.email}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:${engineer.github}</h4>
+    </div>
+    </div>
+</div>
 `
-${name} ${Id} ${email} ${office_number} ${github} ${school}
-<!doctype html>
-<html lang="en">
+}
+
+const addInternCard = (intern) => {
+    return `
+    <div class="col">
+    <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
+    <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
+        <h2 style="color: white">${intern.name}</h2>
+        <h3 style="color: white; font-size: 20px;">Icon Intern</h3>
+    </div>
+    <div style="background-color: white; margin: 40px 20px 20px 20px; ">
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${intern.Id} 1</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:${intern.email}</h4>
+        <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">School:${intern.school}</h4>
+    </div>
+    </div>
+    </div>
+    `
+}
+
+
+const generateHTML = (team) => {
+    return `
+    <!doctype html>
+    <html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -177,88 +253,11 @@ ${name} ${Id} ${email} ${office_number} ${github} ${school}
 
     <div class="container">
         <div class="row row-cols-3 justify-content-center" style="margin: 20px;">
-            <div class="col">
-                <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
-                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">Name</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon and Field</h3>
-                </div>
-                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: 1</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:</h4>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div style="height: 300px; margin-bottom: 40px;background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
-                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">Name</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon and Field</h3>
-                </div>
-                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: 1</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:</h4>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
-                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">Name</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon and Field</h3>
-                </div>
-                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: 1</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:</h4>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
-                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">Name</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon and Field</h3>
-                </div>
-                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: 1</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:</h4>
-                </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
-                <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-                    <h2 style="color: white">Name</h2>
-                    <h3 style="color: white; font-size: 20px;">Icon and Field</h3>
-                </div>
-                <div style="background-color: white; margin: 40px 20px 20px 20px; ">
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: 1</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Email:</h4>
-                    <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">Github:</h4>
-                </div>
-                </div>
-            </div>
-
+        ${team}
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"></script>
 </body>
-
 </html>
-`
-
-*/
-
-
+    `
+}
 startMenu();
