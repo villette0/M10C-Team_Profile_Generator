@@ -202,8 +202,8 @@ const addEngineerCard = (engineer) => {
     <div class="col">
     <div style="height: 300px; margin-bottom: 40px; background-color: rgb(242, 242, 242); filter: drop-shadow(3px 3px 3px rgb(88, 86, 86));">
     <div style="background-color: rgb(28, 130, 255); margin: 0px; padding: 10px;">
-        <h2 style="color: white">${engineer.name}</h2>
-        <h3 style="color: white; font-size: 20px;">Icon Engineer</h3>
+        <h2 style="color: white; font-size: 40px;">${engineer.name}</h2>
+        <h3 style="color: white; font-size: 30px;"><i class="fa-solid fa-computer"></i> Engineer</h3>
     </div>
     <div style="background-color: white; margin: 40px 20px 20px 20px; ">
         <h4 style="border: 1px solid gray; color: black; margin: 0px; font-size: 18px; padding: 6px;">ID: ${engineer.Id}</h4>
@@ -243,6 +243,8 @@ const generateHTML = (team) => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Team Profile</title>
+    <!--Icons from font awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
