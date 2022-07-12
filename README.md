@@ -42,6 +42,15 @@ The JavaScript documents include:
 * Node Modules such as Inquirer, FS (file system), and Jest
 * Comments
 
+The HTML documents include:
+* 
+* 
+* Comments
+
+The CSS documents include:
+* 
+* Node Modules such as Inquirer, FS (file system), and Jest
+
 ## Languages
 - JavaScript
 - HTML

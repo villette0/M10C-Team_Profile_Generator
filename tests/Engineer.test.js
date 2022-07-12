@@ -1,7 +1,7 @@
 const Engineer = require('../src/Engineer');
 
 describe('Engineer', () => {
-    const engineer = new Engineer("Susan", "15", "susan@gmail.com", "@susanm");
+    const engineer = new Engineer("Susan", "15", "susan@gmail.com", "susanm9");
     describe('Initialization', () => {
         // Positive test
         it("should create an object with a name, Id, email, and github if provided valid arguments", () => {
@@ -9,13 +9,13 @@ describe('Engineer', () => {
             expect(engineer.name).toEqual("Susan");
             expect(engineer.Id).toEqual("15");
             expect(engineer.email).toEqual("susan@gmail.com");
-            expect(engineer.github).toEqual("@susanm");
+            expect(engineer.github).toEqual("susanm9");
         });
     });
 
     describe('getGithub function', () => {
         it("should return the github", () => {
-            expect(engineer.getGithub()).toEqual("@susanm");
+            expect(engineer.getGithub()).toEqual("susanm9");
         });
     });
 
