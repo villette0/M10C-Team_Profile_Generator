@@ -36,7 +36,7 @@ const startMenu = () => {
             }
             else {
                 compileTeam();
-                console.log("Thank you for using the application. If you added a team member the index.html file can be found in the dist folder.")
+                console.log("Thank you for using the application. If you added a team member, the index.html file can be found in the dist folder.")
                 return;
             }
         })
