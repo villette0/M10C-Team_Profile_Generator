@@ -168,7 +168,7 @@ const compileTeam = () => {
         }
     }
     fs.writeFileSync("./dist/index.html", generateHTML(team.join("")));
-    fs.copyFile("./examplepage/style.css","./dist/style.css", null, () => {});
+    fs.copyFile("./template_pages/style.css","./dist/style.css", null, () => {});
 }
 
 const addManagerCard = (manager) => {
