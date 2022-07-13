@@ -38,18 +38,19 @@ THEN I exit the application, and the HTML is generated
 
 ## Tasks Completed
 The JavaScript documents include:
-* Functions, Objects, Arrays, and 'const' variables
-* Node Modules such as Inquirer, FS (file system), and Jest
-* Comments
+* functions, classes, constructors, objects, arrays
+* node modules such as Inquirer, FS (file system), and Jest
+* comments
 
 The HTML documents include:
-* 
-* 
-* Comments
+* proper HTML semantic labelling
+* Font Awesome icons
+* Bootstrap library for the grid layout
+* comments
 
 The CSS documents include:
-* 
-* Node Modules such as Inquirer, FS (file system), and Jest
+* an organized structure that matches the HTML order
+* element and class selectors
 
 ## Languages
 - JavaScript
@@ -62,9 +63,9 @@ The CSS documents include:
 * [Repository](https://github.com/villettec/M10C-Team_Profile_Generator)
 
 ## Screenshots
-![image](./readme-screenshot.png)
+![image](./assets/images/readme-screenshot.png)
 
-![image](./readme-screenshot-2.png)
+![image](./assets/images/readme-screenshot-2.png)
 
 ## Credit
 Villette Comfort

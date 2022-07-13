@@ -71,10 +71,9 @@ const addManagertoArray = () => {
         ])
         .then((answers) => {
             const manager = new Manager(answers.name, answers.Id, answers.email, answers.office_number);
-            console.log(manager);
             employeeArray.push(manager);
             console.log("A manager has been added with the following information:");
-            console.log("Name: " + manager.name+ ", ID: " + manager.Id + ", Email: " + manager.email + ", Office Number: " + manager.office_number);
+            console.log("Name: " + manager.name+ ", ID: " + manager.Id + ", Email: " + manager.email + ", Office Number: " + manager.officeNumber);
             startMenu();
         }
         )
@@ -109,7 +108,6 @@ const addEngineertoArray = () => {
         ])
         .then((answers) => {
             const engineer = new Engineer(answers.name, answers.Id, answers.email, answers.github);
-            console.log(engineer);
             employeeArray.push(engineer);
             console.log("An engineer has been added with the following information:");
             console.log("Name: " + engineer.name+ ", ID: " + engineer.Id + ", Email: " + engineer.email + ", Github: " + engineer.github);
