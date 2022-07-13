@@ -58,7 +58,7 @@ The CSS documents include:
 - CSS
 
 ## Links
-* [Screen Recording of Application](https://drive.google.com/file/d/1KmxmDwexHAd3-ArprAiwq4150nN4-XlP/view)
+* [Application Walkthrough Video](https://drive.google.com/file/d/1KmxmDwexHAd3-ArprAiwq4150nN4-XlP/view)
 
 * [Repository](https://github.com/villettec/M10C-Team_Profile_Generator)
 
