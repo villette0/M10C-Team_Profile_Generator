@@ -60,14 +60,10 @@ The CSS documents include:
 ## Links
 * [Application Walkthrough Video](https://drive.google.com/file/d/1KmxmDwexHAd3-ArprAiwq4150nN4-XlP/view)
 
-* [Repository](https://github.com/villettec/M10C-Team_Profile_Generator)
+* [Repository](https://github.com/villette0/M10C-Team_Profile_Generator)
 
 ## Screenshots
 ![image](./assets/images/readme-screenshot.png)
 
 ![image](./assets/images/readme-screenshot-2.png)
 
-## Credit
-Villette Comfort
-
-villette@live.com
